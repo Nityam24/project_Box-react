@@ -70,37 +70,39 @@ function Home(props) {
         </div>
       </div>
 
-      <div className={styles.body}>
-        <p className={styles.title}>All Projects(just for demo)</p>
-        <div className={styles.projects}>
-          {projectsLoaded ? (
-            projects.length > 0 ? (
-              projects.map((item) => (
-                <div
-                  className={styles.project}
-                  key={item.pid}
-                  onClick={() => handleProjectCardClick(item)}
-                >
-                  <div className={styles.image}>
-                    <img
-                      src={
-                        item.thumbnail ||
-                        "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png"
-                      }
-                      alt="Project thumbnail"
-                    />
+      {
+        <div className={styles.body}>
+          <p className={styles.title}>All Projects (just for demo)</p>
+          <div className={styles.projects}>
+            {projectsLoaded ? (
+              projects.length > 0 ? (
+                projects.map((item) => (
+                  <div
+                    className={styles.project}
+                    key={item.pid}
+                    onClick={() => handleProjectCardClick(item)}
+                  >
+                    <div className={styles.image}>
+                      <img
+                        src={
+                          item.thumbnail ||
+                          "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png"
+                        }
+                        alt="Project thumbnail"
+                      />
+                    </div>
+                    <p className={styles.title}>{item.title}</p>
                   </div>
-                  <p className={styles.title}>{item.title}</p>
-                </div>
-              ))
+                ))
+              ) : (
+                <p>No projects found</p>
+              )
             ) : (
-              <p>No projects found</p>
-            )
-          ) : (
-            <Spinner />
-          )}
+              <Spinner />
+            )}
+          </div>
         </div>
-      </div>
+      }
     </div>
   );
 }
