@@ -86,12 +86,6 @@ function ProjectForm(props) {
     } else if (!values.overview) {
       isValid = false;
       setErrorMessage("Project's Overview required");
-    } else if (!actualPoints.length) {
-      isValid = false;
-      setErrorMessage("Description of Project is required");
-    } else if (actualPoints.length < 2) {
-      isValid = false;
-      setErrorMessage("Minimum 2 description points required");
     } else {
       setErrorMessage("");
     }
